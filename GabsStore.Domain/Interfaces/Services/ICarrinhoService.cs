@@ -1,8 +1,8 @@
-﻿using GabsStore.Model.Entities;
+﻿using GabsStore.Domain.Entities;
 
-namespace GabsStore.Model.Interfaces
+namespace GabsStore.Domain.Interfaces.Services
 {
-	public interface ICarrinho
+	public interface ICarrinhoService
 	{
 		void AdicionarItem(Item item);
 		void RemoverItem(Item item);

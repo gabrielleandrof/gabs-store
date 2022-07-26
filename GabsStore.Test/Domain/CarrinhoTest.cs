@@ -1,7 +1,8 @@
-﻿using GabsStore.Model.Entities;
-using GabsStore.Model.Interfaces;
+﻿using GabsStore.Domain.Entities;
+using GabsStore.Domain.Interfaces.Services;
+using GabsStore.Domain.Services;
 
-namespace GabsStore.Test.Model
+namespace GabsStore.Test.Domain
 {
 	public class CarrinhoTest
 	{
@@ -24,7 +25,7 @@ namespace GabsStore.Test.Model
 			item.Descricao = "Guitarra top de linha da Gibson, fabricada nos EUA com a maior excelência em qualidade... etc";
 
 			//act
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 
 			//assert
@@ -57,7 +58,7 @@ namespace GabsStore.Test.Model
 			item3.Descricao = "TV de 43 polegadas com resolução 4k perfeita para seus filmes e games";
 
 			//act
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 			carrinho.AdicionarItem(item2);
 			carrinho.AdicionarItem(item3);
@@ -80,7 +81,7 @@ namespace GabsStore.Test.Model
 			item.IdEstoque = 1;
 			item.Descricao = "Guitarra top de linha da Gibson, fabricada nos EUA com a maior excelência em qualidade... etc";
 
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 
 			//act
@@ -115,7 +116,7 @@ namespace GabsStore.Test.Model
 			item3.IdEstoque = 3;
 			item3.Descricao = "TV de 43 polegadas com resolução 4k perfeita para seus filmes e games";
 
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 			carrinho.AdicionarItem(item2);
 			carrinho.AdicionarItem(item3);
@@ -131,31 +132,18 @@ namespace GabsStore.Test.Model
 		public void DeveRemoverTodosOsItensDoCarrinho()
 		{
 			//arrange
-			Item item = new Item();
-			item.Id = 1;
-			item.Nome = "Guitarra Gibson Les Paul Custom 1989";
-			item.Preco = 33259.99;
-			item.IdEstoque = 1;
-			item.Descricao = "Guitarra top de linha da Gibson, fabricada nos EUA com a maior excelência em qualidade... etc";
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
+			for (int i = 0; i < 10; i++)
+			{
+				Item item = new Item();
+				item.Id = i + 1;
+				item.Nome = $"Guitarra Gibson Les Paul Custom 1989 {i + 1}";
+				item.Preco = new Random().Next(5000);
+				item.IdEstoque = i + 1;
+				item.Descricao = "Guitarra top de linha da Gibson, fabricada nos EUA com a maior excelência em qualidade... etc";
 
-			Item item2 = new Item();
-			item2.Id = 2;
-			item2.Nome = "Licor Baileys";
-			item2.Preco = 77.25;
-			item2.IdEstoque = 2;
-			item2.Descricao = "Bebida aperitiva para drinks";
-
-			Item item3 = new Item();
-			item3.Id = 3;
-			item3.Nome = "TV Samsung 43 polegadas 4k Modelo XPTO";
-			item3.Preco = 1659.9;
-			item3.IdEstoque = 3;
-			item3.Descricao = "TV de 43 polegadas com resolução 4k perfeita para seus filmes e games";
-
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
-			carrinho.AdicionarItem(item);
-			carrinho.AdicionarItem(item2);
-			carrinho.AdicionarItem(item3);
+				carrinho.AdicionarItem(item);
+			}
 
 			//act
 			carrinho.RemoverTodosItens();
@@ -196,7 +184,7 @@ namespace GabsStore.Test.Model
 			item4.IdEstoque = 1;
 			item4.Descricao = "Guitarra top de linha da Gibson, fabricada nos EUA com a maior excelência em qualidade... etc";
 
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 			carrinho.AdicionarItem(item2);
 			carrinho.AdicionarItem(item3);
@@ -248,7 +236,7 @@ namespace GabsStore.Test.Model
 			item5.IdEstoque = 2;
 			item5.Descricao = "Bebida aperitiva para drinks";
 
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 			carrinho.AdicionarItem(item2);
 			carrinho.AdicionarItem(item3);
@@ -301,7 +289,7 @@ namespace GabsStore.Test.Model
 			item5.IdEstoque = 2;
 			item5.Descricao = "Bebida aperitiva para drinks";
 
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 			carrinho.AdicionarItem(item2);
 			carrinho.AdicionarItem(item3);
@@ -327,7 +315,7 @@ namespace GabsStore.Test.Model
 			item.IdEstoque = 1;
 			item.Descricao = "Guitarra top de linha da Gibson, fabricada nos EUA com a maior excelência em qualidade... etc";
 
-			ICarrinho carrinho = new Carrinho(_cliente.SessionId);
+			ICarrinhoService carrinho = new CarrinhoService(_cliente.SessionId);
 			carrinho.AdicionarItem(item);
 
 			Item item2 = new Item();

@@ -1,4 +1,4 @@
-﻿namespace GabsStore.Model.Entities
+﻿namespace GabsStore.Domain.Entities
 {
 	public class Item
 	{
