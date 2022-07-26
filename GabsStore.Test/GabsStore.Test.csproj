@@ -25,4 +25,8 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GabsStore.Model\GabsStore.Model.csproj" />
+  </ItemGroup>
+
 </Project>
