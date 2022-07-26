@@ -3,11 +3,6 @@ using GabsStore.Domain.Interfaces.Repositories;
 using GabsStore.Domain.Interfaces.Services;
 using GabsStore.Domain.Services;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GabsStore.Test.Domain
 {
