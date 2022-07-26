@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace GabsStore.Test.Model
 {
-	public class ClienteTest
+	public class VendaTest
 	{
-		[Fact]
-		public void ToDo()
-		{
-		}
 	}
 }
